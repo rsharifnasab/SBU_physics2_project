@@ -1,16 +1,16 @@
 from matplotlib import pyplot as plt
 
 db = []
-T = 100
-TedadElement = 520
-toolZel = 1
-kolQ = 1
+step = 1
+TedadElement = 25
+toolZel = 100
+kolQ = 100
 K = 1/(4 * 3.1415926 * 8.85*10**(-12) )
+max_dist = toolZel * 12
 
-for r in range(T):
+for fasele in range(1,max_dist,step):
     E = 0
-    fasele = 1 + r /10
-
+    E2 = 0
     for i in range(TedadElement):
         for j in range(TedadElement):
             #UP
@@ -18,17 +18,22 @@ for r in range(T):
             dist += ((TedadElement/2 - i)*toolZel )**2
             dist += ((TedadElement/2 - i)*toolZel )**2
             ssin = fasele  / (dist**0.5)
-            E += K * kolQ * ssin / (TedadElement**2) /dist 
+            E += K * kolQ * ssin / (TedadElement**2) /dist
             #DOWN
             dist = (fasele+toolZel)**2
             dist += ((TedadElement/2 - i)*toolZel )**2
             dist += ((TedadElement/2 - i)*toolZel )**2
             ssin = fasele / (dist **0.5)
-            E += K * kolQ * ssin / (TedadElement**2) /dist 
+            E += K * kolQ * ssin / (TedadElement**2) /dist
             #ZEL
+            dist = fasele**2
+            dist += ((TedadElement/2 - i)*toolZel )**2
+            dist += ((TedadElement/2 - i)*toolZel )**2
+            ssin = fasele  / (dist**0.5)
+            E2 += K * kolQ * ssin / (TedadElement**2) /dist
+            E2 *=4
             #TODO
-    print(r," : ",E)
+    print(fasele," : ",E)
     db.append(E)
-plt.bar(range(T),db)
+plt.bar(range(len(db)),db)
 plt.show()
-        
