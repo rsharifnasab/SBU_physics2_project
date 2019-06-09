@@ -6,7 +6,7 @@ integ_step = 1
 l = 100
 K = 1/(4 * 3.1415926 * 8.85*10**(-12) )
 K = 1
-max_dist = l//2 * 5
+max_dist = l//2 * 8
 print("calculating")
 
 for z in range(0,max_dist,z_step): #UP
