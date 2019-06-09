@@ -34,7 +34,7 @@ for z in range(0,max_dist,z_step): #DOWN
             #dE = (K)/(r*r) #TODO
             E_down += dE
     db[z] += E_down * 1
-
+print("...")
 for z in range(0,max_dist,z_step): #SIDE
     E_SIDE = 0
     y = l//2
@@ -45,7 +45,7 @@ for z in range(0,max_dist,z_step): #SIDE
             dE = (K * z2) / (r**3)
             #dE = (K)/(r*r) #TODO
             E_SIDE += dE
-    db[z] += E_SIDE * 4 
+    db[z] += E_SIDE * 4
 
 print("done, opening output")
 plt.bar(db.keys(),db.values())
