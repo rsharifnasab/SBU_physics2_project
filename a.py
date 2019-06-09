@@ -6,7 +6,7 @@ TedadElement = 25
 toolZel = 100
 kolQ = 100
 K = 1/(4 * 3.1415926 * 8.85*10**(-12) )
-max_dist = toolZel * 12
+max_dist = toolZel * 5
 
 for fasele in range(1,max_dist,step):
     E = 0
@@ -35,5 +35,6 @@ for fasele in range(1,max_dist,step):
             #TODO
     print(fasele," : ",E)
     db.append(E)
+print(max(db));
 plt.bar(range(len(db)),db)
 plt.show()
